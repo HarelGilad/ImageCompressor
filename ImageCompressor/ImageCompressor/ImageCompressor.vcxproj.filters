@@ -21,12 +21,18 @@
     <ClCompile Include="fileUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="imageUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imageUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fileUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
