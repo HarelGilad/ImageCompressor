@@ -13,12 +13,19 @@ void ImageUtils::generateCompressedJPEG(const std::string& path, unsigned short 
         return;
     }
     
-    std::string newPath = "compressed_" + path;
+    std::string newPath = "cmp_" + path;
     FileUtils::createFile(newPath, compressedImage.data, compressedImage.size);
-    
+    std::cout << "Generated Compressed File <" << newPath << ">" << std::endl;
+
     // Cleanup
     tjFree(rawImage.data);
     tjFree(compressedImage.data);
+}
+
+bool ImageUtils::isQualityValid(const char* quality)
+{
+    std::string qualityStr = quality;
+    return !qualityStr.empty() && std::all_of(qualityStr.begin(), qualityStr.end(), isdigit);
 }
 
 ImageInfo ImageUtils::getRawPixels(const std::string& path)
@@ -32,7 +39,7 @@ ImageInfo ImageUtils::getRawPixels(const std::string& path)
     {
         rawImage.data = nullptr;
 
-        std::cerr << "FileError: Could Not Find " << path << std::endl;
+        std::cerr << "FileError: Could Not Find <" << path << ">" << std::endl;
         return rawImage;
     }
 
