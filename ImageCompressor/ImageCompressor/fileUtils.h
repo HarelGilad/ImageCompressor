@@ -1,14 +1,13 @@
 #ifndef FILE_UTILS 
 #define FILE_UTILS
 
+#include "includes.h"
 #include <fstream>
 
-using byte = uint8_t;
-
-namespace fileUtils
+namespace FileUtils
 {
 	void createFile(const std::string& path, const byte* data, const size_t size);
-	byte* getFileContents(const std::string& path);
+	size_t getFileContents(byte*& buffer, const std::string& path);
 }
 
 #endif
