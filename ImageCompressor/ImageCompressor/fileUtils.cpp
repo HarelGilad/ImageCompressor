@@ -1,5 +1,11 @@
 #include "fileUtils.h"
 
+/// <summary>
+/// Creates a new binary file, and writes the data into it
+/// </summary>
+/// <param name="path">Path of the new file</param>
+/// <param name="data">Buffer to write into the file</param>
+/// <param name="size">Buffer size</param>
 void FileUtils::createFile(const std::string& path, const byte* data, const size_t size)
 {
     std::ofstream file(path, std::ios::binary);
@@ -8,6 +14,12 @@ void FileUtils::createFile(const std::string& path, const byte* data, const size
     file.write(reinterpret_cast<const char*>(data), size);
 }
 
+/// <summary>
+/// Reads binary file content into a buffer
+/// </summary>
+/// <param name="buffer">Buffer to read into</param>
+/// <param name="path">Path of file to read from</param>
+/// <returns>Content size (the size of the buffer after calling the function)</returns>
 size_t FileUtils::getFileContents(byte*& buffer, const std::string& path)
 {
     std::ifstream file(path, std::ios::binary | std::ios::ate);
